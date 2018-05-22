@@ -4,31 +4,27 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.nisum.api.dao.BankImpl;
 import com.nisum.api.model.ATM;
 import com.nisum.api.model.Bank;
 import com.nisum.api.repository.BankRepository;
-import com.nisum.api.repository.BankSearchRepository;
 
 @Controller
 public class BankAppController {
-	@Qualifier("clientRepository")
+	//@Qualifier("clientRepository")
 	@Autowired 
 	BankRepository bankRepository;
 	
 	@Autowired
-	BankSearchRepository bankSearchRepository;
+	BankImpl bankSearchRepository;
 	
 	@RequestMapping("/banks")
 	public ResponseEntity<Iterable<Bank>> banks() {
@@ -52,9 +48,15 @@ public class BankAppController {
     }
 	
 	@RequestMapping(value = "/banks/search")
-	public ResponseEntity<?> search(@RequestParam String zipcode, @RequestParam String bankId) {
-		Collection<ATM> atms = bankSearchRepository.searchATMsByZipcode(zipcode, bankId);
-		return new ResponseEntity<Collection<ATM>>(atms, HttpStatus.OK);
+	public ResponseEntity<?> search(@RequestParam String zipcode) {
+		Collection<Bank> bank = bankSearchRepository.searchATMsByZipcode(zipcode);
+		return new ResponseEntity<Collection<Bank>>(bank, HttpStatus.OK);
 	}
+	
+   /* @RequestMapping(value = "/banks/search")
+	public ResponseEntity<?> search(@RequestParam String zipcode, @RequestParam String bankId) {
+		List<ATM> bank = bankSearchRepository.searchATMsByZipcode(zipcode, bankId);
+ 		return new ResponseEntity<List<ATM>>(bank, HttpStatus.OK);
+	}*/
 	
 }

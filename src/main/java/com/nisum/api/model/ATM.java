@@ -7,15 +7,12 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 public class ATM {
 	private String bankId;
-	private String id;
-	@DBRef
 	private Address address;
 	private boolean isActive;
 	private Date installedDate;
 	private String installedBy;
 	private Date changedDate;
 	private Date changedBy;
-	@DBRef
 	private List<Notes> reasons;
 	public String getBankId() {
 		return bankId;
@@ -23,12 +20,7 @@ public class ATM {
 	public void setBankId(String bankId) {
 		this.bankId = bankId;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public Address getAddress() {
 		return address;
 	}
@@ -71,6 +63,18 @@ public class ATM {
 	public void setReasons(List<Notes> reasons) {
 		this.reasons = reasons;
 	}
+	/*public ATM(String bankId, Address address, boolean isActive, Date installedDate, String installedBy,
+			Date changedDate, Date changedBy, List<Notes> reasons) {
+		super();
+		this.bankId = bankId;
+		this.address = address;
+		this.isActive = isActive;
+		this.installedDate = installedDate;
+		this.installedBy = installedBy;
+		this.changedDate = changedDate;
+		this.changedBy = changedBy;
+		this.reasons = reasons;
+	}*/
 	
 	
 }

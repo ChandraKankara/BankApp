@@ -1,12 +1,21 @@
 package com.nisum.api.model;
 
 public class Address {
+	private String id;
 	private String street1;
 	private String street2;
 	private String city;
 	private String state;
 	private String country;
+	
 	private String zipCode;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getStreet1() {
 		return street1;
 	}
@@ -43,6 +52,15 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	/*public Address(String street1, String street2, String city, String state, String country, String zipCode) {
+		super();
+		this.street1 = street1;
+		this.street2 = street2;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+		this.zipCode = zipCode;
+	}*/
 	
 	
 }

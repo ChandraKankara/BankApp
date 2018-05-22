@@ -3,24 +3,32 @@ package com.nisum.api.model;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 
 public class Bank {
+	@Id
 	private String id;
 	private String name;
 	private String bankType;
 	private String desc;
 	private String licenceNumeber;
-	@DBRef
+	
 	private List<Branch> branches;
-	@DBRef
-	private Address address;
+	private List<ATM> atm;
+	//private Address address;
 	private boolean isActive;
 	private Date createdDate;
 	private String createdBy;
 	private Date updatedDate;
 	private Date updatedby;
-	@DBRef
+	
 	private List<Notes> reasons;
 	public String getId() {
 		return id;
@@ -58,12 +66,19 @@ public class Bank {
 	public void setBranches(List<Branch> branches) {
 		this.branches = branches;
 	}
-	public Address getAddress() {
+	
+	public List<ATM> getAtm() {
+		return atm;
+	}
+	public void setAtm(List<ATM> atm) {
+		this.atm = atm;
+	}
+	/*public Address getAddress() {
 		return address;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
-	}
+	}*/
 	public boolean isActive() {
 		return isActive;
 	}
@@ -100,7 +115,39 @@ public class Bank {
 	public void setReasons(List<Notes> reasons) {
 		this.reasons = reasons;
 	}
+	/*public Bank(String id, String name, String bankType, String desc, String licenceNumeber, List<Branch> branches,
+			Address address, boolean isActive, Date createdDate, String createdBy, Date updatedDate, Date updatedby,
+			List<Notes> reasons) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.bankType = bankType;
+		this.desc = desc;
+		this.licenceNumeber = licenceNumeber;
+		this.branches = branches;
+		this.address = address;
+		this.isActive = isActive;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedby = updatedby;
+		this.reasons = reasons;
+	}
 	
-	
+	 @Override
+	    public String toString() {
+	    	ObjectMapper mapper = new ObjectMapper();
+	    	
+	    	String jsonString = "";
+			try {
+				mapper.enable(SerializationFeature.INDENT_OUTPUT);
+				jsonString = mapper.writeValueAsString(this);
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			
+	    	return jsonString;
+	    }*/
+
 	
 }

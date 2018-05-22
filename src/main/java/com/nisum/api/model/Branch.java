@@ -1,9 +1,11 @@
 package com.nisum.api.model;
 
 import java.util.Date;
+
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Branch {
 	private String bankId;
@@ -11,14 +13,12 @@ public class Branch {
 	private String name;
 	private String branchType;
 	private String licenceNumber;
-	@DBRef
 	private Address address;
 	private boolean isActive;
 	private Date createdDate;
 	private String createdBy;
 	private Date updatedDate;
 	private Date updatedBy;
-	@DBRef
 	private List<Notes> reasons;
 	public String getBankId() {
 		return bankId;
@@ -92,6 +92,23 @@ public class Branch {
 	public void setReasons(List<Notes> reasons) {
 		this.reasons = reasons;
 	}
+	/*public Branch(String bankId, String id, String name, String branchType, String licenceNumber, Address address,
+			boolean isActive, Date createdDate, String createdBy, Date updatedDate, Date updatedBy,
+			List<Notes> reasons) {
+		super();
+		this.bankId = bankId;
+		this.id = id;
+		this.name = name;
+		this.branchType = branchType;
+		this.licenceNumber = licenceNumber;
+		this.address = address;
+		this.isActive = isActive;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
+		this.reasons = reasons;
+	}*/
 	
 	
 }

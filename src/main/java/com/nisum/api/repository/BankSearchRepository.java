@@ -1,4 +1,4 @@
-package com.nisum.api.repository;
+/*package com.nisum.api.repository;
 
 import java.util.Collection;
 
@@ -29,4 +29,4 @@ public class BankSearchRepository {
 						.orOperator(Criteria.where("zipCode").regex(zipCode, "i"))
 						), ATM.class);
 	}
-}
+}*/

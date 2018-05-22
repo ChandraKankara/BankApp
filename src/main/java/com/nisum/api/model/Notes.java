@@ -2,6 +2,8 @@ package com.nisum.api.model;
 
 import java.util.Date;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 public class Notes {
 	private int id;
 	private String reason;
@@ -31,5 +33,12 @@ public class Notes {
 	public void setCommentedBy(String commentedBy) {
 		this.commentedBy = commentedBy;
 	}
+	/*public Notes(int id, String reason, Date commentedDate, String commentedBy) {
+		super();
+		this.id = id;
+		this.reason = reason;
+		this.commentedDate = commentedDate;
+		this.commentedBy = commentedBy;
+	}*/
 	
 }
