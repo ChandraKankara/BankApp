@@ -53,10 +53,10 @@ public class BankAppController {
 		return new ResponseEntity<Collection<Bank>>(bank, HttpStatus.OK);
 	}
 	
-   /* @RequestMapping(value = "/banks/search")
+    @RequestMapping(value = "/banks/search")
 	public ResponseEntity<?> search(@RequestParam String zipcode, @RequestParam String bankId) {
 		List<ATM> bank = bankSearchRepository.searchATMsByZipcode(zipcode, bankId);
  		return new ResponseEntity<List<ATM>>(bank, HttpStatus.OK);
-	}*/
+	}
 	
 }
