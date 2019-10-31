@@ -11,7 +11,6 @@
 	<name>BankAppl</name>
 	<description>Demo project for Bank Appl</description>
 
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
