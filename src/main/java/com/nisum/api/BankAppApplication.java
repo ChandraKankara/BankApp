@@ -10,5 +10,6 @@ public class BankAppApplication {
 
 	public static void main(String [] args) {
 		SpringApplication.run(BankAppApplication.class);
+		System.out.println("Start");
 	}
 }
